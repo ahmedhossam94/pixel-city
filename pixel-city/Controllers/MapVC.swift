@@ -17,17 +17,21 @@ class MapVC: UIViewController ,UIGestureRecognizerDelegate{
     @IBOutlet weak var pullUpView: UIView!
 
     @IBOutlet weak var mapView: MKMapView!
+    
     var regionRadious:Double = 1000
     var locationManger = CLLocationManager()
     var authorizationStatus = CLLocationManager.authorizationStatus()
+    
     var spinner : UIActivityIndicatorView?
     var progressLbl : UILabel?
     var screenSize = UIScreen.main.bounds
+    
     var collectionView : UICollectionView?
     var flowLayout = UICollectionViewFlowLayout()
     
     var imageUrlArray = [String]()
     var imageArray = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -118,6 +122,8 @@ class MapVC: UIViewController ,UIGestureRecognizerDelegate{
         }
         
     }
+    
+    
     func retrieveImages(handler : @escaping (_ status:Bool)->()){
        
         for url in imageUrlArray{
@@ -132,13 +138,21 @@ class MapVC: UIViewController ,UIGestureRecognizerDelegate{
             })
         }
     }
+    
+    
     func cancelAllSessions(){
         Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, UploadData, downloadData) in
             sessionDataTask .forEach({$0.cancel()})
             downloadData.forEach({$0.cancel()})
         }
     }
+    
+    
+    
 }
+
+
+
 extension MapVC : MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation{
@@ -185,6 +199,8 @@ extension MapVC : MKMapViewDelegate{
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadious * 2.0 , regionRadious * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
         print (touchCoordinate)
+       
+        
         retrieveUrls(forAnnotation: annotation) { (finished ) in
             if finished {
                 self.retrieveImages(handler: { (finished) in
@@ -207,9 +223,12 @@ extension MapVC : MKMapViewDelegate{
             mapView.removeAnnotation(annotation)
         }
     }
+    
    
   
 }
+
+
 extension MapVC : CLLocationManagerDelegate{
     func configureLocationServices(){
         if authorizationStatus == .notDetermined {
@@ -224,13 +243,16 @@ extension MapVC : CLLocationManagerDelegate{
     }
 }
 
+
 extension MapVC : UICollectionViewDelegate,UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as? PhotosCell else{return UICollectionViewCell()}
        let imageFromIndex = imageArray[indexPath.row]
@@ -239,11 +261,13 @@ extension MapVC : UICollectionViewDelegate,UICollectionViewDataSource{
         
         return cell
         
-    }
+        }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let pop = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else{return}
         pop.initData(forImage: imageArray[indexPath.row])
         present(pop , animated: true, completion: nil)
-    }
+        }
     
 }
