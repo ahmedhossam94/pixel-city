@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		268874817B33FA86DD115ACD /* Pods_pixel_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45168B4A7193ED53F497364 /* Pods_pixel_city.framework */; };
 		E20372722019420B00DF080E /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20372712019420B00DF080E /* PhotosCell.swift */; };
+		E2E80F17201A049500082F3F /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E80F16201A049500082F3F /* PopVC.swift */; };
 		E2EBEEA8201793C200D0B5A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EBEEA7201793C200D0B5A2 /* AppDelegate.swift */; };
 		E2EBEEAA201793C200D0B5A2 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EBEEA9201793C200D0B5A2 /* MapVC.swift */; };
 		E2EBEEAD201793C200D0B5A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EBEEAB201793C200D0B5A2 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		C45168B4A7193ED53F497364 /* Pods_pixel_city.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixel_city.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE213D05E2011C76B83DBAB /* Pods-pixel-city.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pixel-city.release.xcconfig"; path = "Pods/Target Support Files/Pods-pixel-city/Pods-pixel-city.release.xcconfig"; sourceTree = "<group>"; };
 		E20372712019420B00DF080E /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		E2E80F16201A049500082F3F /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		E2EBEEA4201793C200D0B5A2 /* pixel-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EBEEA7201793C200D0B5A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2EBEEA9201793C200D0B5A2 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E2EBEEA9201793C200D0B5A2 /* MapVC.swift */,
+				E2E80F16201A049500082F3F /* PopVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E80F17201A049500082F3F /* PopVC.swift in Sources */,
 				E2F691DF201958A600284D48 /* Constants.swift in Sources */,
 				E20372722019420B00DF080E /* PhotosCell.swift in Sources */,
 				E2EBEEAA201793C200D0B5A2 /* MapVC.swift in Sources */,
