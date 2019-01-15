@@ -8,7 +8,7 @@
 
 import Foundation
 let apiKey = "Your key"
-
+//let key = "17f7598123d6e923150d99a449464c05" Maybe expire
 func flickUrl(forApiKey key: String , withAnnotation annotation:DrobablePin , andNumberOfPhotes number: Int) -> String {
     return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(key)&lat=\(annotation.coordinate.latitude)&lon=\(annotation.coordinate.longitude)&radius=1&radius_units=mil&per_page=\(number)&format=json&nojsoncallback=1"
     
